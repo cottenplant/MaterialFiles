@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import me.zhanghai.android.files.R
 import me.zhanghai.android.files.databinding.AboutFragmentBinding
@@ -36,14 +37,14 @@ class AboutFragment : Fragment() {
         val activity = requireActivity() as AppCompatActivity
         activity.setSupportActionBar(binding.toolbar)
         activity.supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        val sourceUri = Uri.parse(getString(R.string.distribution_source_url))
+        val sourceUri = getString(R.string.distribution_source_url).toUri()
         binding.gitHubLayout.setOnClickListener {
             startActivitySafe(sourceUri.createViewIntent())
         }
         binding.licensesLayout.setOnClickListener { LicensesDialogFragment.show(this) }
         val privacyPolicyUri = getString(R.string.distribution_privacy_policy_url)
             .takeIf { it.isNotEmpty() }
-            ?.let(Uri::parse)
+            ?.toUri()
         binding.privacyPolicyLayout.visibility =
             if (privacyPolicyUri != null) View.VISIBLE else View.GONE
         binding.privacyPolicyLayout.setOnClickListener {
