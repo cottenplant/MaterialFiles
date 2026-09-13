@@ -8,6 +8,7 @@ package me.zhanghai.android.files.filelist
 import android.content.Intent
 import android.os.Bundle
 import java8.nio.file.Path
+import me.zhanghai.android.files.BuildConfig
 import me.zhanghai.android.files.app.AppActivity
 import me.zhanghai.android.files.app.application
 import me.zhanghai.android.files.file.MimeType
@@ -44,10 +45,8 @@ class OpenFileActivity : AppActivity() {
     }
 
     companion object {
-        private const val ACTION_OPEN_FILE = "me.zhanghai.android.files.intent.action.OPEN_FILE"
-
         fun createIntent(path: Path, mimeType: MimeType): Intent =
-            Intent(ACTION_OPEN_FILE)
+            Intent(BuildConfig.INTENT_ACTION_OPEN_FILE)
                 .setPackage(application.packageName)
                 .setType(mimeType.value)
                 .apply { extraPath = path }

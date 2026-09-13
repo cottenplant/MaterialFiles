@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2026 Moby Files contributors
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  -->
+
+<resources>
+
+    <item name="distribution_app_name" type="string">@string/app_name</item>
+    <string name="distribution_application_id" translatable="false">me.zhanghai.android.files</string>
+    <string name="intent_action_manage_ftp_server" translatable="false">me.zhanghai.android.files.intent.action.MANAGE_FTP_SERVER</string>
+    <string name="intent_action_view_downloads" translatable="false">me.zhanghai.android.files.intent.action.VIEW_DOWNLOADS</string>
+</resources>

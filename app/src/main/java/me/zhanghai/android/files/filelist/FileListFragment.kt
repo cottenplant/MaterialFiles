@@ -52,6 +52,7 @@ import com.leinardi.android.speeddial.SpeedDialView
 import java8.nio.file.Path
 import java8.nio.file.Paths
 import kotlinx.parcelize.Parcelize
+import me.zhanghai.android.files.BuildConfig
 import me.zhanghai.android.files.R
 import me.zhanghai.android.files.app.application
 import me.zhanghai.android.files.app.clipboardManager
@@ -318,7 +319,7 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
                         PickOptions.Mode.OPEN_DIRECTORY, null, false, emptyList(), localOnly, false
                     )
                 }
-                ACTION_VIEW_DOWNLOADS ->
+                BuildConfig.INTENT_ACTION_VIEW_DOWNLOADS ->
                     path = Paths.get(
                         Environment.getExternalStoragePublicDirectory(
                             Environment.DIRECTORY_DOWNLOADS
@@ -1623,9 +1624,6 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
     }
 
     companion object {
-        private const val ACTION_VIEW_DOWNLOADS =
-            "me.zhanghai.android.files.intent.action.VIEW_DOWNLOADS"
-
         private const val IMAGE_VIEWER_ACTIVITY_PATH_LIST_SIZE_MAX = 1000
     }
 

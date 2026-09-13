@@ -105,10 +105,10 @@ coexistence and upgrade behavior are deferred until signing is designed.
 
 ## Dependencies and unresolved decisions
 
-- The stable application ID should follow an established public Mobyverse
-  naming convention if one exists. If the permitted public materials do not
-  establish one clearly, implementation pauses for the user's choice rather
-  than inventing a durable identity.
+- The public Mobyverse materials do not define an Android reverse-domain
+  namespace. The public fork remote establishes `cottenplant` as the durable
+  GitHub identity, so this phase uses `io.github.cottenplant.mobyfiles` unless
+  the user selects a different ID before distribution.
 - Gradle execution depends on command-boundary approval for the existing host
   JDK and read-only `/Users/samco/Library/Android/sdk` access.
 - Offline acceptance depends on artifacts already present in the

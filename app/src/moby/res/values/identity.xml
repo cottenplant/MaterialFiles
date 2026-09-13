@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2026 Moby Files contributors
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  -->
+
+<resources>
+
+    <string name="distribution_app_name" translatable="false">Moby Files</string>
+    <string name="distribution_application_id" translatable="false">io.github.cottenplant.mobyfiles</string>
+    <string name="intent_action_manage_ftp_server" translatable="false">io.github.cottenplant.mobyfiles.intent.action.MANAGE_FTP_SERVER</string>
+    <string name="intent_action_view_downloads" translatable="false">io.github.cottenplant.mobyfiles.intent.action.VIEW_DOWNLOADS</string>
+</resources>
