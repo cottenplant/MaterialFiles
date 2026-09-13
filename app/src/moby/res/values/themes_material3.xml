@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <style name="Base.Theme.MobyFiles.Material3.Light" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/moby_m3_light_primary</item>
+        <item name="colorOnPrimary">@color/moby_m3_light_on_primary</item>
+        <item name="colorPrimaryInverse">@color/moby_m3_dark_primary</item>
+        <item name="colorPrimaryContainer">@color/moby_m3_light_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/moby_m3_light_on_primary_container</item>
+        <item name="colorSecondary">@color/moby_m3_light_secondary</item>
+        <item name="colorOnSecondary">@color/moby_m3_light_on_secondary</item>
+        <item name="colorSecondaryContainer">@color/moby_m3_light_secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/moby_m3_light_on_secondary_container</item>
+        <item name="colorTertiary">@color/moby_m3_light_tertiary</item>
+        <item name="colorOnTertiary">@color/moby_m3_light_on_tertiary</item>
+        <item name="colorTertiaryContainer">@color/moby_m3_light_tertiary_container</item>
+        <item name="colorOnTertiaryContainer">@color/moby_m3_light_on_tertiary_container</item>
+        <item name="android:colorBackground">@color/moby_m3_light_surface</item>
+        <item name="colorOnBackground">@color/moby_m3_light_on_surface</item>
+        <item name="colorSurface">@color/moby_m3_light_surface</item>
+        <item name="colorOnSurface">@color/moby_m3_light_on_surface</item>
+        <item name="colorSurfaceVariant">@color/moby_m3_light_surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/moby_m3_light_on_surface_variant</item>
+        <item name="colorSurfaceInverse">@color/moby_m3_light_inverse_surface</item>
+        <item name="colorOnSurfaceInverse">@color/moby_m3_light_inverse_on_surface</item>
+        <item name="colorSurfaceBright">@color/moby_m3_light_surface_bright</item>
+        <item name="colorSurfaceDim">@color/moby_m3_light_surface_dim</item>
+        <item name="colorSurfaceContainer">@color/moby_m3_light_surface_container</item>
+        <item name="colorSurfaceContainerLow">@color/moby_m3_light_surface_container_low</item>
+        <item name="colorSurfaceContainerHigh">@color/moby_m3_light_surface_container_high</item>
+        <item name="colorSurfaceContainerLowest">@color/moby_m3_light_surface_container_lowest</item>
+        <item name="colorSurfaceContainerHighest">@color/moby_m3_light_surface_container_highest</item>
+        <item name="colorOutline">@color/moby_m3_light_outline</item>
+        <item name="colorOutlineVariant">@color/moby_m3_light_outline_variant</item>
+        <item name="colorPrimaryFixed">@color/moby_m3_primary_fixed</item>
+        <item name="colorPrimaryFixedDim">@color/moby_m3_primary_fixed_dim</item>
+        <item name="colorOnPrimaryFixed">@color/moby_m3_on_primary_fixed</item>
+        <item name="colorOnPrimaryFixedVariant">@color/moby_m3_on_primary_fixed_variant</item>
+        <item name="colorSecondaryFixed">@color/moby_m3_secondary_fixed</item>
+        <item name="colorSecondaryFixedDim">@color/moby_m3_secondary_fixed_dim</item>
+        <item name="colorOnSecondaryFixed">@color/moby_m3_on_secondary_fixed</item>
+        <item name="colorOnSecondaryFixedVariant">@color/moby_m3_on_secondary_fixed_variant</item>
+        <item name="colorTertiaryFixed">@color/moby_m3_tertiary_fixed</item>
+        <item name="colorTertiaryFixedDim">@color/moby_m3_tertiary_fixed_dim</item>
+        <item name="colorOnTertiaryFixed">@color/moby_m3_on_tertiary_fixed</item>
+        <item name="colorOnTertiaryFixedVariant">@color/moby_m3_on_tertiary_fixed_variant</item>
+    </style>
+
+    <style name="Base.Theme.MobyFiles.Material3.Dark" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/moby_m3_dark_primary</item>
+        <item name="colorOnPrimary">@color/moby_m3_dark_on_primary</item>
+        <item name="colorPrimaryInverse">@color/moby_m3_light_primary</item>
+        <item name="colorPrimaryContainer">@color/moby_m3_dark_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/moby_m3_dark_on_primary_container</item>
+        <item name="colorSecondary">@color/moby_m3_dark_secondary</item>
+        <item name="colorOnSecondary">@color/moby_m3_dark_on_secondary</item>
+        <item name="colorSecondaryContainer">@color/moby_m3_dark_secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/moby_m3_dark_on_secondary_container</item>
+        <item name="colorTertiary">@color/moby_m3_dark_tertiary</item>
+        <item name="colorOnTertiary">@color/moby_m3_dark_on_tertiary</item>
+        <item name="colorTertiaryContainer">@color/moby_m3_dark_tertiary_container</item>
+        <item name="colorOnTertiaryContainer">@color/moby_m3_dark_on_tertiary_container</item>
+        <item name="android:colorBackground">@color/moby_m3_dark_surface</item>
+        <item name="colorOnBackground">@color/moby_m3_dark_on_surface</item>
+        <item name="colorSurface">@color/moby_m3_dark_surface</item>
+        <item name="colorOnSurface">@color/moby_m3_dark_on_surface</item>
+        <item name="colorSurfaceVariant">@color/moby_m3_dark_surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/moby_m3_dark_on_surface_variant</item>
+        <item name="colorSurfaceInverse">@color/moby_m3_dark_inverse_surface</item>
+        <item name="colorOnSurfaceInverse">@color/moby_m3_dark_inverse_on_surface</item>
+        <item name="colorSurfaceBright">@color/moby_m3_dark_surface_bright</item>
+        <item name="colorSurfaceDim">@color/moby_m3_dark_surface_dim</item>
+        <item name="colorSurfaceContainer">@color/moby_m3_dark_surface_container</item>
+        <item name="colorSurfaceContainerLow">@color/moby_m3_dark_surface_container_low</item>
+        <item name="colorSurfaceContainerHigh">@color/moby_m3_dark_surface_container_high</item>
+        <item name="colorSurfaceContainerLowest">@color/moby_m3_dark_surface_container_lowest</item>
+        <item name="colorSurfaceContainerHighest">@color/moby_m3_dark_surface_container_highest</item>
+        <item name="colorOutline">@color/moby_m3_dark_outline</item>
+        <item name="colorOutlineVariant">@color/moby_m3_dark_outline_variant</item>
+        <item name="colorPrimaryFixed">@color/moby_m3_primary_fixed</item>
+        <item name="colorPrimaryFixedDim">@color/moby_m3_primary_fixed_dim</item>
+        <item name="colorOnPrimaryFixed">@color/moby_m3_on_primary_fixed</item>
+        <item name="colorOnPrimaryFixedVariant">@color/moby_m3_on_primary_fixed_variant</item>
+        <item name="colorSecondaryFixed">@color/moby_m3_secondary_fixed</item>
+        <item name="colorSecondaryFixedDim">@color/moby_m3_secondary_fixed_dim</item>
+        <item name="colorOnSecondaryFixed">@color/moby_m3_on_secondary_fixed</item>
+        <item name="colorOnSecondaryFixedVariant">@color/moby_m3_on_secondary_fixed_variant</item>
+        <item name="colorTertiaryFixed">@color/moby_m3_tertiary_fixed</item>
+        <item name="colorTertiaryFixedDim">@color/moby_m3_tertiary_fixed_dim</item>
+        <item name="colorOnTertiaryFixed">@color/moby_m3_on_tertiary_fixed</item>
+        <item name="colorOnTertiaryFixedVariant">@color/moby_m3_on_tertiary_fixed_variant</item>
+    </style>
+
+    <style name="Platform.V21.Theme.MaterialFiles.Material3" parent="Base.Theme.MobyFiles.Material3.Light">
+        <item name="colorPrimaryDark">@color/system_window_scrim_compat</item>
+    </style>
+    <style name="Platform.V21.Theme.MaterialFiles.Material3.Immersive" parent="Base.Theme.MobyFiles.Material3.Dark">
+        <item name="android:navigationBarColor">?colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/dark_50_percent</item>
+    </style>
+</resources>
