@@ -1,6 +1,6 @@
 # Session contract: Phase 2C — privacy transparency
 
-Status: active
+Status: complete
 
 Working branch: `master`
 
@@ -132,3 +132,10 @@ APK produced in this phase should be installed.
 - The `origin/master` remote-tracking reflog records an external push to
   `02e1feec` despite the Phase 2B handoff stating that nothing was pushed. This
   phase will not inspect, fetch, or mutate the remote.
+
+## Result
+
+Phase 2C completed on 2026-09-13. Moby now exposes its confirmed public source
+and privacy notice from About, the upstream flavor retains its original source
+link and hidden privacy row, and the implementation and offline acceptance
+evidence are recorded in `docs/agent/baselines/phase-2c.md`.
