@@ -31,6 +31,8 @@ remote repository state.
 ## Deliverables
 
 - Repository-scoped agent policy with privacy and Git boundaries.
+- A requirement to launch future sessions from the Material Files Git root so
+  sibling repositories are not part of the writable sandbox.
 - Workspace-write sandbox configuration with shell networking disabled.
 - Secret-bearing environment variables filtered from child processes.
 - Command rules forbidding remote mutation and personal-infrastructure access.

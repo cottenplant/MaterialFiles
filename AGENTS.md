@@ -21,6 +21,9 @@ Priorities, in order:
 ## Filesystem scope
 
 - The hard filesystem boundary is `/Users/samco/codex-lab/foss`.
+- Launch Codex from `/Users/samco/codex-lab/foss/MaterialFiles`, not from the
+  multi-repository parent. This keeps the automatic workspace-write root limited
+  to this Git repository and activates its project-scoped `.codex/` layer.
 - Never inspect, search, enumerate, or write outside that directory without a
   specific user approval for an exact path and purpose.
 - `MaterialFiles/` is the only writable project unless a session contract says
