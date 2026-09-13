@@ -1,6 +1,6 @@
 # Session contract: Phase 1C — dependency integrity
 
-Status: active
+Status: complete
 
 Working branch: `master`
 
@@ -114,3 +114,11 @@ must not be installed while it retains upstream identity.
   signature, reproducible-build, and license review remains future work.
 - Application identity, Mobyverse branding, fork privacy documentation,
   signing, update channels, and distribution remain deferred.
+
+## Result
+
+Dependency locking and strict SHA-256 verification are enabled, generated, and
+validated. The final offline debug build, unit-test task, lint task, unsigned
+APK check, and lock-regeneration check passed. See the
+[Phase 1C report](../baselines/phase-1c.md) for coverage, artifact identities,
+bootstrap limitations, and acceptance results.
