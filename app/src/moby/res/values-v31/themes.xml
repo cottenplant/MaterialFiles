@@ -2,7 +2,7 @@
 
 <resources>
 
-    <style name="Theme.MaterialFiles">
+    <style name="Theme.MaterialFiles" parent="Base.Theme.MaterialFiles">
         <item name="android:windowSplashScreenBackground">@color/moby_deep_background</item>
         <item name="android:windowSplashScreenAnimatedIcon">@drawable/moby_launcher_icon_foreground</item>
         <item name="android:windowSplashScreenIconBackgroundColor">@color/moby_deep_background</item>
