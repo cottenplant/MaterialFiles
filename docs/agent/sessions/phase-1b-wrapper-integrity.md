@@ -1,6 +1,6 @@
 # Session contract: Phase 1B — Gradle wrapper integrity
 
-Status: active
+Status: complete
 
 Working branch: `master`
 
@@ -78,3 +78,9 @@ None. This phase does not configure the Android project or produce an APK.
 - Dependency locking, dependency verification metadata, identity, Mobyverse
   branding, signing, update channels, privacy documentation, and distribution
   remain deferred to separate contracts.
+
+## Result
+
+The wrapper distribution is pinned and the acceptance checks passed. See the
+[Phase 1B report](../baselines/phase-1b.md) for source identities, checksum
+comparison, offline wrapper output, and boundary details.
