@@ -1,6 +1,6 @@
 # Session contract: Phase 2B — visual branding
 
-Status: active
+Status: complete
 
 Working branch: `master`
 
@@ -124,9 +124,10 @@ phase should be installed.
 
 ## Dependencies and unresolved decisions
 
-- The exact `deep` palette values, cargo-glyph geometry, source license, and
-  attribution will be taken only from the permitted public Mobyverse files and
-  recorded in the Phase 2B report.
+- The exact `deep` palette values and public cargo design language were taken
+  only from the permitted public Mobyverse files and are recorded in the Phase
+  2B report. No explicit license file was present in that permitted reference
+  scope, so no Mobyverse code or existing glyph geometry was copied.
 - Android SDK access requires explicit approval at the build command boundary.
 - Offline acceptance depends on artifacts already present in the
   repository-local Phase 0B cache; a cache miss stops this phase.
@@ -135,3 +136,10 @@ phase should be installed.
   user-visible dynamic-color preference merely to force branding.
 - Permanent signing, install/upgrade testing, screenshots, store metadata,
   privacy documentation, update channels, and distribution remain deferred.
+
+## Result
+
+Phase 2B completed on 2026-09-13. The implementation and offline acceptance
+evidence are recorded in `docs/agent/baselines/phase-2b.md`. Pre-Android 12
+devices retain the existing upstream launch-window behavior; the branded
+platform splash applies on Android 12 and later.
