@@ -18,6 +18,8 @@ the retained archive from fresh repository-local state without network access.
   repository-local Phase 0B Gradle home.
 - Create a clean detached worktree and fresh Gradle user home only under
   `.gradle/phase-1b/`.
+- Execute the existing host shell, checksum utility, and JDK selected by the
+  wrapper; do not install or download a toolchain.
 - Run the repository Gradle wrapper offline for `--version`; do not configure or
   build the Android project.
 - Make small local commits directly to `master` with concise Conventional
@@ -25,8 +27,9 @@ the retained archive from fresh repository-local state without network access.
 
 ## Safety conditions
 
-- Use no network, SDK, cache, toolchain, or filesystem path outside this
-  repository.
+- Use no network, Android SDK, Gradle cache, or task-specific filesystem input
+  outside this repository. Host shell, checksum utility, and JDK executable
+  access is the only permitted external tool use.
 - Explicitly unset `STORE_FILE`, `STORE_PASSWORD`, `KEY_ALIAS`, and
   `KEY_PASSWORD` for every Gradle invocation without printing or inspecting
   their values.
