@@ -1,0 +1,27 @@
+# Phase 1A lint download manifest
+# Retrieved: 2026-09-13
+# Source: https://dl.google.com/dl/android/maven2/
+f305c1e1ac3eb7d20e54550f48e07b56a96951473dd3fe7bb8913ed0cd3a5e91  androidx/graphics/graphics-shapes-desktop/1.0.1/graphics-shapes-desktop-1.0.1.jar
+d2523d73abbe2f1e787106ad4e1f7acee30a7c62370f85bb4d782700f0fd0701  androidx/graphics/graphics-shapes-desktop/1.0.1/graphics-shapes-desktop-1.0.1.module
+f1c2b64dca4c7306275f442176712740eb021b78af0f8a316c577be63debc6e7  androidx/graphics/graphics-shapes-desktop/1.0.1/graphics-shapes-desktop-1.0.1.pom
+975b9eeca60ff222f2f38524d05f02da3b8ccfd1a7449fa211d6e88423888cb6  com/android/tools/external/com-intellij/intellij-core/32.1.0/intellij-core-32.1.0.jar
+9f06b17e497879b8e908d8f68b4f6b34011845f6e1e856d4ce74d3f53def8766  com/android/tools/external/com-intellij/intellij-core/32.1.0/intellij-core-32.1.0.pom
+9351e61defe2f25e632e2cbc34ee864a7b017d193c99cadf05650a061c843297  com/android/tools/external/com-intellij/kotlin-compiler/32.1.0/kotlin-compiler-32.1.0.jar
+aeeac8c7f9a262c77809eff6d6204dde7f25c709c1aac4d5d851d95ba35cc337  com/android/tools/external/com-intellij/kotlin-compiler/32.1.0/kotlin-compiler-32.1.0.pom
+b75a953d4dc82baaec5d79b84b5910fd10c58c0bf0ef664e66441356ff15bf4d  com/android/tools/external/org-jetbrains/uast/32.1.0/uast-32.1.0.jar
+da9fee92726022ef5466033952d137f4a39b76ccf9e9844f7ff501834ff5146a  com/android/tools/external/org-jetbrains/uast/32.1.0/uast-32.1.0.pom
+1299a6551416dc953ef88000c5bf4f7db504162b3e65ce9d63f9c9048b5e2f8a  com/android/tools/lint/lint/32.1.0/lint-32.1.0.jar
+309ac76b300264a79e045ab09340e26d4e0bee03e7503570f4e45e296661f901  com/android/tools/lint/lint/32.1.0/lint-32.1.0.pom
+e5fadcb6d525fc9fcdcb86abe89a5865d36f79070e18ca2d50dc8bcf83bda4b0  com/android/tools/lint/lint-api/32.1.0/lint-api-32.1.0.jar
+050140b490170d70727a542e8138a774fde389b49ca22894006fa04eeb78779b  com/android/tools/lint/lint-api/32.1.0/lint-api-32.1.0.pom
+4bf382af26feffb5b06b4ed7506ab296bd8b6aa392634fcac129073d6ec0f0c4  com/android/tools/lint/lint-checks/32.1.0/lint-checks-32.1.0.jar
+c4bf026f9996fe79f17bf789ea83209a13d67e1046c920b717117ab1351d0c4a  com/android/tools/lint/lint-checks/32.1.0/lint-checks-32.1.0.pom
+0abdb1b1cd9a0bb7b9488500646a016f2c053bb31ba427645d6bf563feb93821  com/android/tools/lint/lint-gradle/32.1.0/lint-gradle-32.1.0.jar
+8086683af428d7e9f8a2ba80dbbbbf33eb1019cd036ee8fb9b97cdab39d51179  com/android/tools/lint/lint-gradle/32.1.0/lint-gradle-32.1.0.pom
+c6fc15a5c203064cfd2c8a176fdeac72ae0a2d743ec47a2e66a0238d8d870b6b  com/android/tools/play-sdk-proto/32.1.0/play-sdk-proto-32.1.0.jar
+e4018ba1a9b30c406be10cc91d61f241c9751fca0773a8457b87c8914230fa2b  com/android/tools/play-sdk-proto/32.1.0/play-sdk-proto-32.1.0.pom
+# Source: https://repo.maven.apache.org/maven2/
+c03f813195e7a80e3608d0ddd8da80b21696a4c92a6a2298865bf149071551c7  org/apache/httpcomponents/httpclient/4.5.6/httpclient-4.5.6.jar
+7efc1241e73e7fbb268bfd33242d11ebd3ca07061d7d85f2962dc32a0f0b8855  org/apache/httpcomponents/httpclient/4.5.6/httpclient-4.5.6.pom
+c92c92c4b9b183f9981ba7399f36592e5e3ad6f4cdac7101b5a22cc17998d13f  org/codehaus/groovy/groovy/3.0.22/groovy-3.0.22.jar
+51b731e5cff121efd6d320f4a801cd616869c5bed4e9c0e353b29060b1d2355f  org/codehaus/groovy/groovy/3.0.22/groovy-3.0.22.pom
