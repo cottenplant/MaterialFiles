@@ -35,8 +35,19 @@ class AboutFragment : Fragment() {
         val activity = requireActivity() as AppCompatActivity
         activity.setSupportActionBar(binding.toolbar)
         activity.supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        binding.gitHubLayout.setOnClickListener { startActivitySafe(GITHUB_URI.createViewIntent()) }
+        val sourceUri = Uri.parse(getString(R.string.distribution_source_url))
+        binding.gitHubLayout.setOnClickListener {
+            startActivitySafe(sourceUri.createViewIntent())
+        }
         binding.licensesLayout.setOnClickListener { LicensesDialogFragment.show(this) }
+        val privacyPolicyUri = getString(R.string.distribution_privacy_policy_url)
+            .takeIf { it.isNotEmpty() }
+            ?.let(Uri::parse)
+        binding.privacyPolicyLayout.visibility =
+            if (privacyPolicyUri != null) View.VISIBLE else View.GONE
+        binding.privacyPolicyLayout.setOnClickListener {
+            privacyPolicyUri?.let { startActivitySafe(it.createViewIntent()) }
+        }
         binding.authorNameLayout.setOnClickListener {
             startActivitySafe(AUTHOR_RESUME_URI.createViewIntent())
         }
@@ -49,7 +60,6 @@ class AboutFragment : Fragment() {
     }
 
     companion object {
-        private val GITHUB_URI = Uri.parse("https://github.com/zhanghai/MaterialFiles")
         private val AUTHOR_RESUME_URI = Uri.parse("https://resume.zhanghai.me/")
         private val AUTHOR_GITHUB_URI = Uri.parse("https://github.com/zhanghai")
         private val AUTHOR_TWITTER_URI = Uri.parse("https://twitter.com/zhanghai95")
