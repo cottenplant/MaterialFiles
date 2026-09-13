@@ -1,6 +1,6 @@
 # Session contract: Phase 0B — reproducible baseline
 
-Status: active
+Status: complete
 
 Working branch: `master`
 
