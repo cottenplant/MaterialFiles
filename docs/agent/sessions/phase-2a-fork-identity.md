@@ -1,6 +1,6 @@
 # Session contract: Phase 2A — fork identity
 
-Status: active
+Status: complete
 
 Working branch: `master`
 
@@ -118,3 +118,12 @@ coexistence and upgrade behavior are deferred until signing is designed.
   2B.
 - Privacy documentation, permanent signing, update channels, and distribution
   remain deferred.
+
+## Result
+
+The `upstream` and `moby` distribution flavors now isolate install identity
+without renaming the source namespace. The Moby variant builds as
+`io.github.cottenplant.mobyfiles`, presents the invariant name `Moby Files`, and
+uses Moby-derived authorities, custom permissions, internal actions, and static
+shortcut targets. See the [Phase 2A report](../baselines/phase-2a.md) for the
+identity matrix and offline acceptance results.
