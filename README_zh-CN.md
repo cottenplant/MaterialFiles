@@ -1,80 +1,68 @@
-# Material Files
+# Moby Files
 
-[![Android CI 状态](https://github.com/zhanghai/MaterialFiles/workflows/Android%20CI/badge.svg)](https://github.com/zhanghai/MaterialFiles/actions) [![GitHub 发行版](https://img.shields.io/github/v/release/zhanghai/MaterialFiles)](https://github.com/zhanghai/MaterialFiles/releases) [![许可证](https://img.shields.io/github/license/zhanghai/MaterialFiles?color=blue)](LICENSE)
+[English](README.md)
 
-一个开源的 Material Design 文件管理器，适用于 Android 5.0+。
+Moby Files 是 [Material Files](https://github.com/zhanghai/MaterialFiles)
+的一个尊重隐私、完全自由开源的软件发行版。它保留了上游的 Java NIO2
+文件系统提供程序架构，同时将本分支的应用身份、品牌、隐私声明和未来的分发渠道
+与上游隔离。
 
-[<img alt="下载应用，请到 Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/zh-cn_badge_web_generic.png" width="240">](https://play.google.com/store/apps/details?id=me.zhanghai.android.files) [<img alt="下载应用，请到 F-Droid" src="https://fdroid.gitlab.io/artwork/badge/get-it-on-zh-cn.png" width="240">](https://f-droid.org/packages/me.zhanghai.android.files) [<img alt="下载应用，请到 GitHub" src="https://raw.githubusercontent.com/Kunzisoft/Github-badge/main/get-it-on-github.png" width="240">](https://github.com/zhanghai/MaterialFiles/releases/latest/download/app-release-universal.apk)
+## 项目状态
 
-[在 Transifex 上帮助翻译](https://www.transifex.com/zhanghai/MaterialFiles/)（[搜索 Android 和 GNOME 的翻译](https://translations.zhanghai.me/)、[微软语言资源](https://learn.microsoft.com/en-us/globalization/reference/microsoft-language-resources)、[MIME 类型翻译](https://gitlab.freedesktop.org/xdg/shared-mime-info/-/tree/master/po)）
+本仓库目前只发布源代码，不提供 Moby Files APK、签名版本或更新渠道。即使存在
+自动构建产物，也不要将其视为正式版本或安装到设备上。
 
-## 预览
+暂定的 Android 应用 ID 是 `io.github.cottenplant.mobyfiles`。首次签名分发前必须
+最终确认此 ID；之后再更改会产生另一个 Android 应用，并破坏预期的更新路径。
 
-<p><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" width="32%" /> <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" width="32%" /> <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/3.png" width="32%" />
-<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/4.png" width="32%" /> <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/5.png" width="32%" /> <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/6.png" width="32%" /></p>
+开发目标是运行 Android 17 的 GrapheneOS Pixel 9 Pro。目前尚未完成签名版本的
+真机验收，因此本仓库暂不声明已发布通过设备验证的版本。
 
-## 特性
+## 分支边界
 
-- 开源：轻量、简洁并且安全。
-- Material Design：遵循 Material Design 规范，并且注重细节。
-- 面包屑导航栏：点击导航栏所显示路径中的任一文件夹即可快速访问。
-- Root 支持：使用 root 权限查看和管理文件。
-- 压缩文件支持：查看、提取和创建常见的压缩文件。
-- NAS 支持：查看和管理 FTP、SFTP、SMB 和 WebDAV 服务器上的文件。
-- 主题：可定制的界面颜色，以及可选纯黑的夜间模式。
-- Linux 友好：类似 [Nautilus](https://wiki.gnome.org/action/show/Apps/Files)，支持符号链接、文件权限和 SELinux 上下文。
-- 健壮性：使用 Linux 系统调用实现，而不是另一个 [`ls` 解析器](https://news.ycombinator.com/item?id=7994720)。
-- 实现良好：使用正确的方式打造，包括 [Java NIO2 文件 API](https://docs.oracle.com/javase/8/docs/api/java/nio/file/package-summary.html) 和 [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)。
+与继承的上游源代码相比，Moby 发行版目前：
 
-## 为什么要有 Material Files?
+- 具有独立的安装身份，固定显示名称为 **Moby Files**；
+- 使用 Moby 专属的 `deep` 配色、货物图形启动器图标、主题图标和 Android 12+
+  启动画面；
+- 经验证的运行时依赖边界不包含 Firebase、Google Play Services、Google
+  DataTransport、广告、分析或自动向开发者发送崩溃报告的功能；
+- 在“关于”页面中提供本分支源代码和隐私声明的链接。
 
-因为喜爱 Material Design，并且是整洁、精致的 Material Design。
+Java/Kotlin 命名空间仍为 `me.zhanghai.android.files`，并有意保留上游的 NIO2
+文件系统提供程序设计。仓库保留了用于比较的 `upstream` 构建变体，但不重新分发
+上游安装包。
 
-市面上已经有了许多强大的文件管理器，但它们中的大多数并非 Material Design。而即使在算是 Material Design 的应用之中，它们（或多或少）有着各种设计瑕疵（布局、对齐、留白、图标、字体等等）存在于应用的各个角落，让人难受；然而却又不是特别大的问题，以至于可能没人愿意特意改善。所以还是需要自己编写。
+## 功能和隐私边界
 
-因为想要一个开源的文件管理器。
+Moby Files 是一款 Material Design 文件管理器，支持本地文件、Android 文档提供
+程序、压缩文件、可选的 root 或 Shizuku 访问，以及 FTP、SFTP、SMB 和 WebDAV。
+它也可以在局域网中发现 SMB 主机，并在用户主动启动后运行可选的 FTP 服务器。
 
-大多数流行并且可靠的文件管理器都是闭源的，并且我有时会使用它们来查看或修改需要 root 权限的文件，但我心里对于授予 root 权限给闭源应用还是有些不安。毕竟 root 权限意味着对设备的完全访问权限，而这台设备每天跟随着我并且存储着我的个人信息；这样的话，闭源应用实际上做了哪些事情就完全仅仅取决于它们的良心了。
+这些功能会处理敏感文件、凭据和网络流量。使用前请阅读[隐私声明](PRIVACY.md)，
+特别是其中有关凭据保存、Android 备份、明文网络和普通 FTP 的现有警告。
 
-因为想要一个正确实现的文件管理器。
+报告漏洞前请阅读[安全策略](SECURITY.md)。切勿在公开议题中发布密码、私钥、
+私有地址、机密文件数据、未经删减的日志或尚未披露的漏洞细节。
 
-- 这个应用实现了 [Java NIO2 文件 API](https://docs.oracle.com/javase/8/docs/api/java/nio/file/package-summary.html) 作为后端，而不是发明一个自定义的机制来获取文件信息和进行文件操作。后者经常变得与前端逻辑耦合起来，最终成长为一个包含各种东西的混合物（[示例](https://github.com/TeamAmaze/AmazeFileManager/blob/master/app/src/main/java/com/amaze/filemanager/filesystem/HybridFile.java)）。相反地，一个解耦的后端可以使得代码更加干净（更少问题），并且可以更轻松地加入新文件系统的支持。
+## 上游项目和署名
 
-- 这个应用没有使用 `java.io.File` 或者解析 `ls` 的输出，而是构建了 Linux 系统调用的绑定来正确地访问文件系统。`java.io.File` 是一个陈旧并且缺少许多功能的 API，并且无法正确处理符号链接，因此许多人宁愿解析 `ls` 的输出。然而解析 `ls` 的输出不仅缓慢，而且[不可靠](https://news.ycombinator.com/item?id=7994720)，同时也正是 [Cabinet](https://github.com/aminb/cabinet/blob/master/app/src/main/java/com/afollestad/cabinet/file/root/LsParser.java) 在新版本 Android 上无法正确运行的原因。而通过使用 Linux 系统调用，这个应用可以做到快速流畅，并且能够处理例如 Linux 权限、符号链接以至于 SELinux 上下文等等高级特性。应用也可以正确地处理含有无效 UTF-8 编码的文件名，因为应用中的路径没有简单地使用 Java 的 `String` 存储，而大多数其他文件管理器却并非如此，因此无法正确地进行文件操作。
+Moby Files 衍生自 [Hai Zhang 的 Material Files
+项目](https://github.com/zhanghai/MaterialFiles)。架构、大部分实现代码、翻译、
+文档历史和继承的素材均来自上游。仓库保留了源代码历史和版权声明，以确保作者
+贡献可追溯。
 
-- 这个应用的前端是基于现代的 `ViewModel` 和 `LiveData` 实现的，使得代码结构更加清晰并且支持转屏。应用也可以正确地处理文件操作中的错误、文件冲突和前台/后台状态。
+`fastlane/metadata/` 中的文件是继承的上游资料，并非当前的 Moby Files
+应用商店页面、版本公告或截图集。
 
-总而言之，这个应用尽力遵守 Android 上的最佳实践并且做正确的事，同时保持源代码干净和可维护。
-
-因为事情可以被人做好。
-
-[Nautilus](https://wiki.gnome.org/Apps/Files) 是一个设计美观并且用户友好的 Linux 桌面上的文件管理器，并且同时做到了 Linux 友好。[Phonograph](https://github.com/kabouzeid/Phonograph) 是一个开源的 Material Design 音乐播放其应用（我自己已经使用多年），而它也有着绝佳的 Material Design 设计和实现。
-
-所以，是时候再编写一个 Android 文件管理器了。
-
-## 在定制 ROM 中集成
-
-如果您决定在您的定制 ROM 中集成这个应用，十分感谢！但是鉴于我曾收到过多起由不适当的集成导致的用户反馈，请允许我为了更好的用户体验提供一些关于正确集成这个应用的建议：
-
-- 请不要使用这个应用替换 AOSP 的 [DocumentsUI](https://android.googlesource.com/platform/packages/apps/DocumentsUI/) 应用。这个应用没有被设计成 DocumentsUI 的替代品并且缺少许多 DocumentsUI 中的功能——实际上，这个应用需要 DocumentsUI 来授予外置 SD 卡的访问权限。
-
-- 请确保这个应用可以被卸载或至少禁用。某些用户可能出于各种原因不想要这个应用，并且会在发现无法移除这个应用时十分恼火。
-
-- 请避免和这个应用的 Play/F-Droid 版本冲突。应用商店无法更新使用了不同证书进行签名的应用，所以您可以预置一个由我（或 F-Droid）签名的 APK 以使用户能够在 Play 或 F-Droid 上更新这个应用；或者如果您需要使用其他的证书进行签名（并进行其他更改），请复刻本项目并重命名它的软件包名。
+上游的公开安装包、发布渠道、CI、翻译服务和支持渠道属于 Material Files，而不
+属于 Moby Files。安装上游安装包会安装具有其自身软件包身份和签名路径的上游
+应用。
 
 ## 许可证
 
-    Copyright (C) 2018 Hai Zhang
+Copyright (C) 2018 Hai Zhang and subsequent contributors.
 
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+本程序是自由软件：您可以根据自由软件基金会发布的 GNU 通用公共许可证第 3 版
+或任何更高版本的条款，重新发布和/或修改本程序。完整条款请参阅
+[LICENSE](LICENSE)。
