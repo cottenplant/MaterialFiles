@@ -2,14 +2,14 @@
 prefix_rule(
     pattern = ["git", "push"],
     decision = "forbidden",
-    justification = "Never push from Codex; give the user the exact push command instead.",
-    match = ["git push", "git push origin codex/phase-0-guardrails"],
+    justification = "Never push from Codex; the user publishes local commits.",
+    match = ["git push", "git push origin master"],
 )
 
 prefix_rule(
     pattern = ["git", "merge"],
-    decision = "forbidden",
-    justification = "The user reviews and merges feature branches in the GitHub UI.",
+    decision = "prompt",
+    justification = "Work normally commits directly to local master; any local merge requires explicit user approval.",
     match = ["git merge master", "git merge codex/phase-1-distribution"],
 )
 

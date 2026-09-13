@@ -69,12 +69,14 @@ searches. Do not ask the user to paste private keys or unredacted credentials.
 
 ## Git and remote services
 
-- Work on one local feature branch per approved session contract. Use the
-  `codex/<phase>-<purpose>` naming convention unless the user selects another.
-- Make changes small and commits atomic. Never mix phases or unrelated fixes.
-- Never push, force-push, merge into `master`, publish a tag or release, open or
-  modify a pull request/issue, or mutate any GitHub/GitLab state.
-- The user owns branch publication, GitHub review, and merging.
+- Commit directly to local `master` unless the user explicitly selects another
+  branch for the session contract.
+- Make changes small and commits atomic. Use concise Conventional Commit
+  subjects and do not add commit-message trailers. Never mix phases or unrelated
+  fixes.
+- Never push, force-push, publish a tag or release, open or modify a pull
+  request/issue, or mutate any GitHub/GitLab state.
+- The user owns publication, remote review, and remote integration.
 - Do not rewrite history, delete branches, discard changes, or clean untracked
   files without explicit approval.
 - Treat all pre-existing changes as user-owned. Stop if they overlap the task.
@@ -123,7 +125,7 @@ user instead of asking to bypass the prohibition.
 Every implementation session must have a short contract under
 `docs/agent/sessions/` specifying:
 
-- objective and branch;
+- objective and working branch (normally `master`);
 - allowed reads, writes, network access, and tools;
 - explicit non-goals;
 - deliverables and acceptance checks;
