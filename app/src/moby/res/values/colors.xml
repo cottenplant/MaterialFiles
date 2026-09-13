@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- Public Mobyverse "deep" palette roles. -->
+    <color name="moby_deep_background">#0D1117</color>
+    <color name="moby_deep_foreground">#93C5FD</color>
+    <color name="moby_deep_muted">#6B6190</color>
+    <color name="moby_deep_lime">#A3E635</color>
+    <color name="moby_deep_periwinkle">#8B8CFF</color>
+    <color name="moby_deep_whale">#A5B4FC</color>
+    <color name="moby_deep_pink">#EC4899</color>
+    <color name="moby_deep_orange">#F97316</color>
+    <color name="moby_deep_yellow">#FDE047</color>
+
+    <!-- Accessible Material 2 defaults derived from the deep indigo and lime roles. -->
+    <color name="color_primary_light">#5153A5</color>
+    <color name="color_primary_dark">@color/moby_deep_lime</color>
+    <color name="color_surface_dark">@color/moby_deep_background</color>
+
+    <!--
+      Static Material 3 roles. Android 12+ dynamic-color themes use the separate
+      m3_sys_color_dynamic_* resources and intentionally remain wallpaper-driven.
+    -->
+    <color name="m3_ref_palette_primary10">#16164B</color>
+    <color name="m3_ref_palette_primary20">#22245E</color>
+    <color name="m3_ref_palette_primary30">#393B74</color>
+    <color name="m3_ref_palette_primary40">#5153A5</color>
+    <color name="m3_ref_palette_primary80">#C4C3FF</color>
+    <color name="m3_ref_palette_primary90">#E1E0FF</color>
+    <color name="m3_ref_palette_primary100">#FFFFFF</color>
+
+    <color name="m3_ref_palette_secondary10">#3A071F</color>
+    <color name="m3_ref_palette_secondary20">#53102F</color>
+    <color name="m3_ref_palette_secondary30">#702046</color>
+    <color name="m3_ref_palette_secondary40">#8A285B</color>
+    <color name="m3_ref_palette_secondary80">#FFAFD0</color>
+    <color name="m3_ref_palette_secondary90">#FFD9E8</color>
+    <color name="m3_ref_palette_secondary100">#FFFFFF</color>
+
+    <color name="m3_ref_palette_tertiary10">#321300</color>
+    <color name="m3_ref_palette_tertiary20">#502400</color>
+    <color name="m3_ref_palette_tertiary30">#713700</color>
+    <color name="m3_ref_palette_tertiary40">#984700</color>
+    <color name="m3_ref_palette_tertiary80">#FFB77B</color>
+    <color name="m3_ref_palette_tertiary90">#FFDCC2</color>
+    <color name="m3_ref_palette_tertiary100">#FFFFFF</color>
+
+    <color name="m3_ref_palette_neutral4">#080C12</color>
+    <color name="m3_ref_palette_neutral6">@color/moby_deep_background</color>
+    <color name="m3_ref_palette_neutral10">#1B1B21</color>
+    <color name="m3_ref_palette_neutral12">#191D24</color>
+    <color name="m3_ref_palette_neutral17">#242329</color>
+    <color name="m3_ref_palette_neutral20">#303036</color>
+    <color name="m3_ref_palette_neutral22">#2F2E34</color>
+    <color name="m3_ref_palette_neutral24">#39393F</color>
+    <color name="m3_ref_palette_neutral87">#DCD8E0</color>
+    <color name="m3_ref_palette_neutral90">#E5E1E9</color>
+    <color name="m3_ref_palette_neutral92">#EAE6EE</color>
+    <color name="m3_ref_palette_neutral94">#F0ECF4</color>
+    <color name="m3_ref_palette_neutral95">#F3EFF7</color>
+    <color name="m3_ref_palette_neutral96">#F6F2FA</color>
+    <color name="m3_ref_palette_neutral98">#FCF8FF</color>
+    <color name="m3_ref_palette_neutral100">#FFFFFF</color>
+
+    <color name="m3_ref_palette_neutral_variant30">#46464F</color>
+    <color name="m3_ref_palette_neutral_variant50">#74727B</color>
+    <color name="m3_ref_palette_neutral_variant60">#928F99</color>
+    <color name="m3_ref_palette_neutral_variant80">#C8C4CF</color>
+    <color name="m3_ref_palette_neutral_variant90">#E5E0EB</color>
+</resources>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Moby Files cargo mark: a crate carrying three files. The ring and palette
+  follow the public Mobyverse design system; this glyph geometry is original.
+-->
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- The two-color ring stays inside the adaptive icon's 66dp safe zone. -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M54,23 A31,31 0,0 1,85 54"
+        android:strokeColor="@color/moby_deep_lime"
+        android:strokeLineCap="round"
+        android:strokeWidth="2.25" />
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M85,54 A31,31 0,0 1,54 85"
+        android:strokeColor="@color/moby_deep_periwinkle"
+        android:strokeLineCap="round"
+        android:strokeWidth="2.25" />
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M54,85 A31,31 0,0 1,23 54"
+        android:strokeColor="@color/moby_deep_periwinkle"
+        android:strokeLineCap="round"
+        android:strokeWidth="2.25" />
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M23,54 A31,31 0,0 1,54 23"
+        android:strokeColor="@color/moby_deep_lime"
+        android:strokeLineCap="round"
+        android:strokeWidth="2.25" />
+
+    <!-- Two outlined files flank one filled payload. -->
+    <path
+        android:fillColor="@color/moby_deep_background"
+        android:pathData="M39,58 L39,43 Q39,40 42,40 L49,40 L54,45 L54,59 Z"
+        android:strokeColor="@color/moby_deep_lime"
+        android:strokeLineJoin="round"
+        android:strokeWidth="1.65" />
+    <path
+        android:fillColor="@color/moby_deep_background"
+        android:pathData="M54,59 L54,42 Q54,39 57,39 L64,39 L69,44 L69,59 Z"
+        android:strokeColor="@color/moby_deep_lime"
+        android:strokeLineJoin="round"
+        android:strokeWidth="1.65" />
+    <path
+        android:fillColor="@color/moby_deep_yellow"
+        android:pathData="M47,58 L47,39 Q47,36 50,36 L58,36 L64,42 L64,58 Z" />
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M58,36 L58,42 L64,42"
+        android:strokeColor="@color/moby_deep_background"
+        android:strokeLineJoin="round"
+        android:strokeWidth="1.35" />
+
+    <!-- The opaque crate front makes the files visibly sit inside it. -->
+    <path
+        android:fillColor="@color/moby_deep_background"
+        android:pathData="M35,55 L38,72 L70,72 L73,55 Z"
+        android:strokeColor="@color/moby_deep_lime"
+        android:strokeLineJoin="round"
+        android:strokeWidth="2.1" />
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M37,62 L71,62"
+        android:strokeAlpha="0.75"
+        android:strokeColor="@color/moby_deep_lime"
+        android:strokeLineCap="round"
+        android:strokeWidth="1.15" />
+    <path
+        android:fillColor="@color/moby_deep_pink"
+        android:pathData="M43,66 A2,2 0,1 0,47 66 A2,2 0,1 0,43 66" />
+</vector>
