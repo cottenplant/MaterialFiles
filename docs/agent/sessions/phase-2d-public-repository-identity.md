@@ -1,6 +1,6 @@
 # Session contract: Phase 2D — public repository identity
 
-Status: active
+Status: complete
 
 Working branch: `master`
 
@@ -110,3 +110,11 @@ sharing authenticated URLs or credentials.
   signing, certificate publication, update channels, store metadata, and device
   acceptance remain separate contracts.
 
+## Result
+
+Phase 2D completed on 2026-09-13. The repository landing pages now identify the
+source-only Moby Files fork in English and Chinese, preserve upstream
+attribution without presenting upstream services as Moby services, and direct
+fork vulnerability reports through a fork-owned, no-secrets disclosure path.
+The implementation and offline acceptance evidence are recorded in
+`docs/agent/baselines/phase-2d.md`.
