@@ -1,0 +1,130 @@
+# Remote mutation is never delegated to Codex for this repository.
+prefix_rule(
+    pattern = ["git", "push"],
+    decision = "forbidden",
+    justification = "Never push from Codex; give the user the exact push command instead.",
+    match = ["git push", "git push origin codex/phase-0-guardrails"],
+)
+
+prefix_rule(
+    pattern = ["git", "merge"],
+    decision = "forbidden",
+    justification = "The user reviews and merges feature branches in the GitHub UI.",
+    match = ["git merge master", "git merge codex/phase-1-distribution"],
+)
+
+prefix_rule(
+    pattern = ["gh", "pr", "create"],
+    decision = "forbidden",
+    justification = "The user creates pull requests after local review.",
+    match = ["gh pr create", "gh pr create --fill"],
+)
+
+prefix_rule(
+    pattern = ["gh", "pr", "merge"],
+    decision = "forbidden",
+    justification = "The user performs all merges in the GitHub UI.",
+    match = ["gh pr merge 1"],
+)
+
+prefix_rule(
+    pattern = ["gh", "release"],
+    decision = "forbidden",
+    justification = "Codex must not create, edit, upload, or delete releases.",
+    match = ["gh release create v1", "gh release upload v1 app.apk"],
+)
+
+# Public remote reads are possible, but require a visible approval boundary.
+prefix_rule(
+    pattern = ["git", "fetch"],
+    decision = "prompt",
+    justification = "Confirm the exact public remote and refs before network access.",
+    match = ["git fetch upstream", "git fetch --tags upstream"],
+)
+
+prefix_rule(
+    pattern = ["git", "clone"],
+    decision = "prompt",
+    justification = "Confirm repository provenance and destination before cloning.",
+    match = ["git clone https://github.com/example/project.git"],
+)
+
+prefix_rule(
+    pattern = ["curl"],
+    decision = "prompt",
+    justification = "Shell network access requires approval; use only public, scoped URLs.",
+    match = ["curl https://example.com/file"],
+)
+
+prefix_rule(
+    pattern = ["wget"],
+    decision = "prompt",
+    justification = "Shell network access requires approval; use only public, scoped URLs.",
+    match = ["wget https://example.com/file"],
+)
+
+# Personal network and cluster access is outside the agent's authority.
+prefix_rule(
+    pattern = [["ssh", "scp", "sftp", "smbclient", "nmap", "ping", "traceroute", "nc", "netcat", "telnet"]],
+    decision = "forbidden",
+    justification = "Do not probe or connect to personal networks; provide user-run test commands.",
+    match = ["ssh test-host", "smbclient -L test-host", "nmap test-host", "ping test-host"],
+)
+
+prefix_rule(
+    pattern = [["kubectl", "helm", "k9s", "wg", "wg-quick"]],
+    decision = "forbidden",
+    justification = "Cluster and WireGuard operations are user-operated and out of scope.",
+    match = ["kubectl get pods", "helm list", "wg show"],
+)
+
+# Device access is opt-in per session.
+prefix_rule(
+    pattern = [["adb", "fastboot"]],
+    decision = "prompt",
+    justification = "Real-device access requires explicit approval in the active session contract.",
+    match = ["adb devices", "adb install app.apk", "fastboot devices"],
+)
+
+# Protect the host, credentials, and local history from accidental mutation.
+prefix_rule(
+    pattern = ["sudo"],
+    decision = "forbidden",
+    justification = "Privileged host operations are outside this repository's scope.",
+    match = ["sudo sdkmanager --licenses"],
+)
+
+prefix_rule(
+    pattern = [["env", "printenv"]],
+    decision = "forbidden",
+    justification = "Do not dump potentially secret-bearing process environments.",
+    match = ["env", "printenv"],
+)
+
+prefix_rule(
+    pattern = [["git"], ["reset", "clean"]],
+    decision = "prompt",
+    justification = "These commands can discard user-owned work and require explicit review.",
+    match = ["git reset --hard HEAD", "git clean -fd"],
+)
+
+prefix_rule(
+    pattern = ["git", "rebase"],
+    decision = "prompt",
+    justification = "History rewriting requires explicit approval.",
+    match = ["git rebase master", "git rebase -i HEAD~3"],
+)
+
+prefix_rule(
+    pattern = ["git", "tag"],
+    decision = "prompt",
+    justification = "Tags participate in the release pipeline and require explicit approval.",
+    match = ["git tag v2026.09.13.1"],
+)
+
+prefix_rule(
+    pattern = [["brew", "sdkmanager"]],
+    decision = "prompt",
+    justification = "Software and SDK installation changes host state and requires approval.",
+    match = ["brew install android-commandlinetools", "sdkmanager platforms;android-37"],
+)

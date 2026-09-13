@@ -1,6 +1,7 @@
 /.gradle/
 /.idea/
 /.kotlin/
+/.codex-log/
 /build/
 /captures/
 /local.properties

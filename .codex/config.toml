@@ -1,0 +1,41 @@
+# Project-local Codex defaults. This layer is loaded only when the repository is
+# trusted and Codex is restarted from the repository root.
+approval_policy = "on-request"
+approvals_reviewer = "user"
+sandbox_mode = "workspace-write"
+allow_login_shell = false
+
+[agents]
+enabled = false
+
+[sandbox_workspace_write]
+network_access = false
+writable_roots = []
+exclude_slash_tmp = true
+exclude_tmpdir_env_var = true
+
+[apps._default]
+enabled = false
+destructive_enabled = false
+open_world_enabled = false
+default_tools_approval_mode = "prompt"
+approvals_reviewer = "user"
+
+[shell_environment_policy]
+inherit = "core"
+ignore_default_excludes = false
+experimental_use_profile = false
+
+[shell_environment_policy.filters]
+"AWS_*" = "exclude"
+"AZURE_*" = "exclude"
+"CI_JOB_TOKEN" = "exclude"
+"DOCKER_*" = "exclude"
+"GITHUB_*" = "exclude"
+"GITLAB_*" = "exclude"
+"GOOGLE_APPLICATION_CREDENTIALS" = "exclude"
+"KUBECONFIG" = "exclude"
+"SSH_*" = "exclude"
+"STORE_PASSWORD" = "exclude"
+"KEY_PASSWORD" = "exclude"
+"WIREGUARD_*" = "exclude"
