@@ -127,10 +127,10 @@ misconfigured server can expose data available to the app.
 Material changes to this notice are recorded in the repository history. Review
 the notice when updating to a new build.
 
-Questions and security or privacy reports should be opened through this fork's
-repository once its public reporting location is published. Do not include
-passwords, private keys, unredacted logs, private addresses, or confidential
-file data in a report.
+Questions and privacy reports can be opened through the fork's [public issue
+tracker](https://github.com/cottenplant/MaterialFiles/issues). Do not publish
+passwords, private keys, unredacted logs, private addresses, confidential file
+data, or undisclosed security-vulnerability details in an issue.
 
 Moby Files is a fork of Material Files. Upstream authorship, licensing, and
 attribution remain documented in [README.md](README.md), [LICENSE](LICENSE), and

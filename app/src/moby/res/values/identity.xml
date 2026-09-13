@@ -13,6 +13,8 @@
 
     <string name="distribution_app_name" translatable="false">Moby Files</string>
     <string name="distribution_application_id" translatable="false">io.github.cottenplant.mobyfiles</string>
+    <string name="distribution_source_url" translatable="false">https://github.com/cottenplant/MaterialFiles</string>
+    <string name="distribution_privacy_policy_url" translatable="false">https://github.com/cottenplant/MaterialFiles/blob/master/PRIVACY.md</string>
     <string name="intent_action_manage_ftp_server" translatable="false">io.github.cottenplant.mobyfiles.intent.action.MANAGE_FTP_SERVER</string>
     <string name="intent_action_view_downloads" translatable="false">io.github.cottenplant.mobyfiles.intent.action.VIEW_DOWNLOADS</string>
 </resources>
