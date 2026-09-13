@@ -1,64 +1,137 @@
-# Privacy Policy
+# Moby Files privacy notice
 
-Hai Zhang built the Material Files app as an Open Source app. This SERVICE is provided by Hai Zhang at no cost and is intended for use as is.
+Effective: 2026-09-13
 
-This page is used to inform visitors regarding my policies with the collection, use, and disclosure of Personal Information if anyone decided to use my Service.
+This notice applies to the Moby Files distribution built from this source tree
+with the Android application ID `io.github.cottenplant.mobyfiles`. It describes
+the tracked source at the effective date. It does not describe the separately
+published upstream Material Files app, a modified build, Android itself, another
+app, a remote server, or a service that you choose to use with Moby Files.
 
-If you choose to use my Service, then you agree to the collection and use of information in relation to this policy. The Personal Information that I collect is used for providing and improving the Service. I will not use or share your information with anyone except as described in this Privacy Policy.
+## Summary
 
-The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which is accessible at Material Files unless otherwise defined in this Privacy Policy.
+Moby Files is a file manager, so it processes file names, file contents,
+metadata, saved locations, and credentials that you ask it to use. The Moby
+Files fork does not include advertising, analytics, Firebase, Google Play
+Services, automatic crash reporting, or another developer-operated telemetry
+service. Its maintainers do not receive your files, credentials, usage data, or
+logs automatically.
 
-## Information Collection and Use
+Network access remains a core, user-directed feature. Moby Files can connect to
+servers, discover SMB hosts on a local network, expose files through its FTP
+server, and open links in other apps. Data involved in those actions can leave
+your device and is subject to the destination, protocol, network, Android
+component, and receiving app.
 
-For a better experience, while using our Service, I may require you to provide us with certain personally identifiable information. The information that I request will be retained on your device and is not collected by me in any way.
+## Data kept on the device
 
-The app does use third party services that may collect information used to identify you.
+Depending on the features you use, Moby Files can retain the following in its
+app data:
 
-Link to privacy policy of third party service providers used by the app
+- preferences, theme choices, sort and display settings;
+- bookmarks, recent locations, and saved local or remote storage definitions;
+- server names or addresses, ports, paths, usernames, passwords, and SFTP
+  private keys and key passwords;
+- settings for the optional FTP server, including its home directory and login
+  details.
 
-- [Google Play Services](https://policies.google.com/privacy)
-- [Google Analytics for Firebase](https://policies.google.com/privacy)
-- [Firebase Crashlytics](https://firebase.google.com/support/privacy)
+Saved storage definitions and credentials are serialized into ordinary
+app-private Android shared preferences. The serialization includes Base64
+encoding but is not separate encryption. Archive passwords are used while the
+relevant archive is open and are not part of the saved storage list.
 
-## Log Data
+You can remove saved locations in the app. Clearing the app's storage or
+uninstalling it removes the active on-device copy, subject to Android backup and
+restore behavior.
 
-I want to inform you that whenever you use my Service, in a case of an error in the app I collect data and information (through third party products) on your phone called Log Data. This Log Data may include information such as your device Internet Protocol (“IP”) address, device name, operating system version, the configuration of the app when utilizing my Service, the time and date of your use of the Service, and other statistics.
+## File and system access
 
-## Cookies
+Moby Files can request broad file-management access in order to browse and
+modify shared storage. It can also work through Android's document-provider
+interfaces, inspect installed packages for file-management features, hand APKs
+to Android's package installer, and optionally use root or Shizuku access. The
+data visible to Moby Files depends on the access that you grant and the feature
+that you invoke.
 
-Cookies are files with a small amount of data that are commonly used as anonymous unique identifiers. These are sent to your browser from the websites that you visit and are stored on your device's internal memory.
+When you select a third-party Android document provider or send a file to
+another app, Android and that app participate in the operation. Their data
+handling is outside the control of the Moby Files maintainers.
 
-This Service does not use these “cookies” explicitly. However, the app may use third party code and libraries that use “cookies” to collect information and improve their services. You have the option to either accept or refuse these cookies and know when a cookie is being sent to your device. If you choose to refuse our cookies, you may not be able to use some portions of this Service.
+## User-directed network activity
 
-## Service Providers
+Moby Files declares network permissions for these features:
 
-I may employ third-party companies and individuals due to the following reasons:
+- FTP, SFTP, SMB, and WebDAV storage connections. The remote endpoint receives
+  the protocol traffic needed for authentication, directory listing, metadata,
+  thumbnails when enabled, and file operations that you request.
+- LAN SMB discovery. Opening the LAN SMB discovery screen starts NetBIOS/SMB
+  browser queries and probes addresses on the device's private IPv4 subnet.
+- The optional built-in FTP server. When you start it, Moby Files listens for
+  incoming FTP connections and exposes the configured home directory with the
+  configured read/write and authentication settings. Reachability depends on
+  the active network and its controls.
+- Explicit external links, such as source, license, author, and privacy links.
+  These are opened by a browser or another app only after you select them.
 
-- To facilitate our Service;
-- To provide the Service on our behalf;
-- To perform Service-related services; or
-- To assist us in analyzing how our Service is used.
+The app permits cleartext network traffic and trusts both system and user-added
+certificate authorities. Plain FTP is not encrypted. WebDAV may use HTTP or
+HTTPS; transport protection for SMB and other connections depends on the
+protocol, server, and configuration. Do not use cleartext protocols or
+untrusted networks for sensitive data.
 
-I want to inform users of this Service that these third parties have access to your Personal Information. The reason is to perform the tasks assigned to them on our behalf. However, they are obligated not to disclose or use the information for any other purpose.
+The Moby Files maintainers do not operate an intermediary service for these
+connections. A server or receiving app can observe data such as your network
+address, credentials, requested paths, file metadata, and transferred content.
+Review and trust each endpoint before connecting.
 
-## Security
+## Android backup
 
-I value your trust in providing us your Personal Information, thus we are striving to use commercially acceptable means of protecting it. But remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and I cannot guarantee its absolute security.
+The current manifest allows Android backup and does not define exclusions for
+saved settings or storage definitions. Depending on the operating system,
+device policy, and configured backup transport, Android may back up app data,
+potentially including saved remote credentials or SFTP private-key material.
+That backup is controlled by Android and the selected transport, not by the
+Moby Files maintainers. Disable app-data backup at the operating-system level or
+avoid saving sensitive credentials if this does not meet your threat model.
 
-## Links to Other Sites
+## Logs and diagnostics
 
-This Service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by me. Therefore, I strongly advise you to review the Privacy Policy of these websites. I have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.
+The app may write error details and stack traces to Android's system log. Moby
+Files does not automatically upload those logs. Logs or screenshots leave your
+device only if you, Android, another privileged component, or a diagnostic tool
+exports them. Review diagnostic material for file paths, server details, and
+other sensitive information before sharing it.
 
-## Children’s Privacy
+## Third-party code and external services
 
-These Services do not address anyone under the age of 13\. I do not knowingly collect personally identifiable information from children under 13\. In the case I discover that a child under 13 has provided me with personal information, I immediately delete this from our servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact me so that I will be able to do necessary actions.
+Moby Files includes FOSS libraries in the application package. The verified
+Moby runtime does not include Firebase, Google Play Services, Google
+DataTransport, an advertising SDK, or an analytics SDK. A library used to
+implement a protocol communicates with the endpoint you direct it to; it is not
+a developer telemetry service.
 
-## Changes to This Privacy Policy
+External websites, remote servers, Android document providers, backup
+transports, browsers, package installers, and other apps have their own privacy
+and security practices. This notice does not govern them.
 
-I may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. I will notify you of any changes by posting the new Privacy Policy on this page. These changes are effective immediately after they are posted on this page.
+## Security limitations
 
-## Contact Us
+No storage or transmission method is completely secure. Protect the device,
+choose trusted endpoints, prefer encrypted protocols, verify server identities,
+limit broad storage or elevated access, and stop the FTP server when it is not
+needed. Device compromise, a malicious provider, an untrusted network, or a
+misconfigured server can expose data available to the app.
 
-If you have any questions or suggestions about my Privacy Policy, do not hesitate to contact me at https://github.com/zhanghai/MaterialFiles.
+## Changes and contact
 
-This privacy policy page was created at [privacypolicytemplate.net](https://privacypolicytemplate.net) and modified/generated by [App Privacy Policy Generator](https://app-privacy-policy-generator.firebaseapp.com/)
+Material changes to this notice are recorded in the repository history. Review
+the notice when updating to a new build.
+
+Questions and security or privacy reports should be opened through this fork's
+repository once its public reporting location is published. Do not include
+passwords, private keys, unredacted logs, private addresses, or confidential
+file data in a report.
+
+Moby Files is a fork of Material Files. Upstream authorship, licensing, and
+attribution remain documented in [README.md](README.md), [LICENSE](LICENSE), and
+the in-app Licenses screen.
