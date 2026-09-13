@@ -1,6 +1,6 @@
 # Session contract: Phase 1A — FOSS build boundary
 
-Status: active
+Status: complete
 
 Working branch: `master`
 
