@@ -29,7 +29,8 @@ this repository.
 - Store Gradle state and temporary clean worktrees only under
   `.gradle/phase-0b/`, which is covered by the existing `.gitignore`.
 - Edit the dav4jvm coordinate, project agent safety configuration, this contract,
-  and a Phase 0B baseline report.
+  the repository-owned unsigned-build init script, and a Phase 0B baseline
+  report.
 - Make small local commits directly to `master` with concise Conventional Commit
   subjects and no trailers.
 
@@ -41,6 +42,9 @@ this repository.
 - Explicitly unset `STORE_FILE`, `STORE_PASSWORD`, `KEY_ALIAS`, and
   `KEY_PASSWORD` for every Gradle invocation, without printing or inspecting
   their values.
+- Load `docs/agent/unsigned-debug.init.gradle` for every APK build. It must clear
+  the debug signing configuration and fail configuration if signing remains
+  enabled.
 - Use a repository-local Gradle user home; do not read or populate the default
   user Gradle cache.
 - Do not run a release-signing task, install an APK, or connect to an Android
@@ -70,8 +74,9 @@ this repository.
 - Recorded Gradle, Android Gradle Plugin, Kotlin, JDK, Android SDK, Build Tools,
   NDK, CMake, and resolved dependency versions used by each build.
 - dav4jvm dependency coordinate using the verified full commit SHA.
-- Clean `assembleDebug` builds of current `master` and pristine `v1.7.4`, with
-  artifact paths, sizes, and SHA-256 digests recorded in the baseline report.
+- Clean unsigned `assembleDebug` builds of current `master` and pristine
+  `v1.7.4`, with artifact paths, sizes, and SHA-256 digests recorded in the
+  baseline report.
 - Build logs and Gradle caches retained only in ignored `.gradle/phase-0b/`
   paths for local diagnosis.
 
@@ -83,11 +88,14 @@ this repository.
   successfully through JitPack.
 - Both clean worktrees are clean before and after their builds except for ignored
   build products.
-- Both debug APK builds succeed using the repository-local Gradle user home.
+- Both unsigned debug APK builds succeed using the repository-local Gradle user
+  home, without a signing-validation task, and `apksigner verify` confirms that
+  neither artifact is signed.
 - The baseline report contains toolchain/dependency versions and artifact
   SHA-256 digests for both builds.
 - `git diff --check` passes and committed Phase 0B changes are limited to the
-  contract, baseline report, safety filter, and dav4jvm coordinate.
+  contract, baseline report, safety filter, unsigned-build init script, and
+  dav4jvm coordinate.
 
 ## User-run tests
 
@@ -105,3 +113,16 @@ user should not install these diagnostic upstream APKs.
   approved inspection.
 - Naming, package identity, branding, FOSS preprocessing, signing, and delivery
   remain deferred to later contracts.
+
+## Resume amendment: unsigned diagnostic builds
+
+The first current-`master` diagnostic build completed `validateSigningDebug` and
+`packageDebug`, so Android Gradle Plugin likely read or created its default debug
+keystore outside the approved paths. Work stopped immediately. No keystore path,
+contents, or derived value was inspected, printed, copied, or hashed.
+
+On 2026-09-13 the user authorized resuming with unsigned diagnostic builds. The
+prior APK output will be removed by Gradle's project-local `clean` task while its
+repository-local build log is retained as the incident record. All subsequent
+APK builds must use the tracked unsigned-build init script and be verified
+unsigned before an artifact digest is computed.

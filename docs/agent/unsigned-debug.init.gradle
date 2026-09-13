@@ -1,0 +1,21 @@
+/*
+ * Disable Android debug signing for agent-operated diagnostic builds.
+ *
+ * Invoke this file with Gradle's --init-script option. The post-evaluation
+ * assertion prevents a build from continuing if another script restores a
+ * signing configuration.
+ */
+
+gradle.beforeProject { project ->
+    project.pluginManager.withPlugin('com.android.application') {
+        def android = project.extensions.getByName('android')
+        android.buildTypes.named('debug').configure {
+            signingConfig = null
+        }
+        project.afterEvaluate {
+            if (android.buildTypes.getByName('debug').signingConfig != null) {
+                throw new GradleException('Debug signing must remain disabled')
+            }
+        }
+    }
+}
