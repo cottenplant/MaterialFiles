@@ -1,4 +1,11 @@
-storeFile=
+# Optional inherited Gradle-integrated signing configuration. Do not use this
+# path for the canonical Moby Files release procedure, which signs the guarded,
+# verified unsigned APK separately; see docs/release-signing.md.
+#
+# Copy this schema only to the ignored signing.properties file. Keep the real
+# keystore outside the repository and never commit or share passwords. Password
+# values are intentionally empty in this tracked example.
+storeFile=/absolute/path/outside/repository/moby-files-release.p12
 storePassword=
-keyAlias=
+keyAlias=moby-files-release
 keyPassword=

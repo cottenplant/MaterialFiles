@@ -13,10 +13,16 @@ This repository currently publishes source code only. It does not publish a
 Moby Files APK, signed release, or update channel. Do not treat automated build
 artifacts, if present, as releases or install them on a device.
 
-The provisional Android application ID is
-`io.github.cottenplant.mobyfiles`. It must be confirmed before the first signed
-distribution; changing it later would create a different Android app and break
-the intended update lineage.
+The permanent Android application ID is `io.github.cottenplant.mobyfiles`.
+Android uses this ID, together with the signing certificate, for install and
+update identity. Visible app names do not determine coexistence: other apps can
+have similar names, but they must use different application IDs. Changing this
+ID after distribution would create a different Android app and break the
+intended update lineage.
+
+The user-operated release-signing and key-custody procedure is
+[documented](docs/release-signing.md), but no permanent key has been generated
+or used by this project.
 
 Development is aimed at a GrapheneOS Pixel 9 Pro running Android 17. Signed
 device acceptance has not happened yet, so the repository does not currently
