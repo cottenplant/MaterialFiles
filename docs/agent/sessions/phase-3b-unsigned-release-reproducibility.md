@@ -1,6 +1,6 @@
 # Session contract: Phase 3B — unsigned release reproducibility
 
-Status: active
+Status: complete
 
 Working branch: `master`
 
@@ -133,3 +133,12 @@ acceptance begins only after a separate signing and key-custody contract.
   phase can complete.
 - Signing and key custody, certificate publication, update channels, store
   metadata, publication, and device acceptance remain separate contracts.
+
+## Result
+
+Phase 3B completed on 2026-09-14. The repository now has an agent-operated,
+noninteractive unsigned path for the exact Moby release variant. Two clean
+offline builds at the same source commit produced byte-identical unsigned APKs
+after checkout-dependent native debug prefixes were normalized. The
+implementation, diagnostic iterations, artifact digests, and remaining limits
+are recorded in `docs/agent/baselines/phase-3b.md`.
