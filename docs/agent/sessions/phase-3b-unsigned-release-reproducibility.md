@@ -16,14 +16,15 @@ for a later key-custody contract.
 
 - Read and write this contract, a repository-owned unsigned-release Gradle init
   script, the minimum conditional signing wiring in `app/build.gradle` and
-  `signing.gradle`, and a tracked Phase 3B report.
+  `signing.gradle`, an optional deterministic native-build correction in
+  `app/CMakeLists.txt`, and a tracked Phase 3B report.
 - Read tracked Gradle, Android, signing, dependency-lock, verification-metadata,
   CI, and prior agent files only as needed to define and verify the release
   assembly boundary.
 - Add an init-script-only marker that causes project configuration to skip
   release credential lookup and signing-config assignment for the diagnostic
   build. The normal release path must remain unchanged when the marker is absent.
-- If reproducibility requires it, make the smallest Gradle-only correction to a
+- If reproducibility requires it, make the smallest build-only correction to a
   nondeterministic build input. Do not change application source, resources,
   manifest behavior, dependencies, versions, or identity.
 - Create two clean detached worktrees, build outputs, logs, and Gradle state only
@@ -70,9 +71,9 @@ for a later key-custody contract.
   screenshot, publication, tag, release, or remote repository mutation.
 - No confirmation or change of the provisional
   `io.github.cottenplant.mobyfiles` application ID.
-- No dependency, plugin, Gradle, wrapper, SDK, NDK, CMake, application version,
-  source, resource, manifest, permission, protocol, storage, or runtime behavior
-  change.
+- No dependency, plugin, Gradle, wrapper, SDK, NDK, CMake version, application
+  version, source, resource, manifest, permission, protocol, storage, or runtime
+  behavior change.
 - No credential-at-rest encryption, Android backup, cleartext-network, or plain
   FTP remediation.
 - No LAN, VPN, WireGuard, Samba, SSH, SFTP, WebDAV, FTP, Kubernetes, ADB, or
@@ -113,8 +114,8 @@ for a later key-custody contract.
   unchanged unless a minimal determinism correction is documented.
 - `git diff --check` passes; commits contain no trailers; and Phase 3B tracked
   changes are limited to this contract, the unsigned-release init script,
-  conditional diagnostic signing wiring, an optional minimal determinism
-  correction, and the Phase 3B report.
+  conditional diagnostic signing wiring, an optional minimal native-build
+  determinism correction, and the Phase 3B report.
 
 ## User-run tests
 
