@@ -23,7 +23,7 @@ gradle.taskGraph.whenReady { taskGraph ->
         throw new GradleException('Unsigned release diagnostics require Moby release tasks')
     }
     if (applicationTasks.any { task ->
-        task.name.contains('Upstream') || task.name.contains('Debug')
+        task.name.contains('Upstream') || task.name.contains('MobyDebug')
     }) {
         throw new GradleException('Unsigned release diagnostics permit only Moby release tasks')
     }
