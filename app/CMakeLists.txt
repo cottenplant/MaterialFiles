@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.6)
 
 project(MaterialFiles C)
 
+# Keep linker build IDs stable across source checkout locations.
+add_compile_options("-fdebug-prefix-map=${CMAKE_SOURCE_DIR}=.")
+
 add_library(hiddenapi SHARED
         src/main/jni/hiddenapi.c)
 target_compile_options(hiddenapi
