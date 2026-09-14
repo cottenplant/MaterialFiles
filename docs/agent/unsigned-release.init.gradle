@@ -1,0 +1,32 @@
+/*
+ * Disable Android release signing for agent-operated diagnostic builds.
+ *
+ * Invoke this file with Gradle's --init-script option from a clean worktree
+ * after unsetting every signing-related environment name. The project hook
+ * clears any plugin default immediately, and the post-evaluation hook clears
+ * the release configuration declared by the project build script. The task
+ * graph assertion prevents execution if another hook restores signing.
+ */
+
+gradle.beforeProject { project ->
+    project.pluginManager.withPlugin('com.android.application') {
+        def android = project.extensions.getByName('android')
+        android.buildTypes.named('release').configure {
+            signingConfig = null
+        }
+        project.afterEvaluate {
+            android.buildTypes.getByName('release').signingConfig = null
+        }
+    }
+}
+
+gradle.taskGraph.whenReady {
+    gradle.rootProject.allprojects.each { project ->
+        project.pluginManager.withPlugin('com.android.application') {
+            def android = project.extensions.getByName('android')
+            if (android.buildTypes.getByName('release').signingConfig != null) {
+                throw new GradleException('Release signing must remain disabled')
+            }
+        }
+    }
+}
