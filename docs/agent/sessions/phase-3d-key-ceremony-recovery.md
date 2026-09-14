@@ -1,6 +1,6 @@
 # Session contract: Phase 3D — key ceremony and recovery verification
 
-Status: active
+Status: complete
 
 Working branch: `master`
 
@@ -165,3 +165,17 @@ installed during this phase.
   reproducibility checks.
 - Certificate publication, device acceptance, developer-verification decisions,
   update channels, distribution, and remote publication remain separate work.
+
+## Result
+
+Phase 3D completed on 2026-09-15. The release owner reported `PASS` for `D1`
+through `D8` and confirmed that no excluded data was included. On the basis of
+those sanitized human attestations, the permanent Moby Files signing key passed
+the required ceremony, protected-backup, independent-restore, cleanup, and
+privacy gates and is eligible for use under a later signed-release contract.
+
+The agent did not access or independently verify any key, certificate identity,
+credential, private record, storage path, backup, restored copy, signing tool,
+or ceremony environment. The attestations, offline static acceptance, this
+verification limitation, and deferred work are recorded in
+`docs/agent/baselines/phase-3d.md`.
