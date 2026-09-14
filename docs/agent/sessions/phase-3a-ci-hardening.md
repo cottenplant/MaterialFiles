@@ -1,6 +1,6 @@
 # Session contract: Phase 3A — CI hardening
 
-Status: active
+Status: complete
 
 Working branch: `master`
 
@@ -120,3 +120,13 @@ failure needs diagnosis.
 - Reproducible unsigned release assembly, signing and key custody, certificate
   publication, update channels, store metadata, and device acceptance remain
   separate contracts.
+
+## Result
+
+Phase 3A completed on 2026-09-14. The Android workflow now verifies explicit
+Moby and upstream diagnostic tasks on pushes and pull requests with read-only
+permissions, immutable action revisions, non-persisted checkout credentials, a
+fixed runner label, and bounded concurrent execution. It no longer uploads an
+unsigned APK or implies a distribution path. The implementation and static
+acceptance evidence are recorded in
+`docs/agent/baselines/phase-3a.md`.
