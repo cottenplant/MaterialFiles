@@ -15,13 +15,17 @@ for a later key-custody contract.
 ## Allowed in this contract
 
 - Read and write this contract, a repository-owned unsigned-release Gradle init
-  script, and a tracked Phase 3B report.
+  script, the minimum conditional signing wiring in `app/build.gradle` and
+  `signing.gradle`, and a tracked Phase 3B report.
 - Read tracked Gradle, Android, signing, dependency-lock, verification-metadata,
   CI, and prior agent files only as needed to define and verify the release
   assembly boundary.
+- Add an init-script-only marker that causes project configuration to skip
+  release credential lookup and signing-config assignment for the diagnostic
+  build. The normal release path must remain unchanged when the marker is absent.
 - If reproducibility requires it, make the smallest Gradle-only correction to a
   nondeterministic build input. Do not change application source, resources,
-  manifest behavior, dependencies, versions, identity, or release signing.
+  manifest behavior, dependencies, versions, or identity.
 - Create two clean detached worktrees, build outputs, logs, and Gradle state only
   under `.gradle/phase-3b/`, which is already ignored.
 - Reuse repository-local Gradle wrapper and dependency state without network
@@ -47,8 +51,9 @@ for a later key-custody contract.
   `KEY_PASSWORD` for every Gradle invocation without printing or inspecting
   their values.
 - Load the tracked unsigned-release init script for every release assembly. It
-  must clear release signing after project evaluation and fail before task
-  execution if the Moby release variant has any signing configuration.
+  must set the private diagnostic marker before project evaluation, limit the
+  task graph to Moby release work, and fail before task execution if the release
+  build type has any signing configuration.
 - Do not run a signing-validation task, sign an artifact, calculate a certificate
   identity, or access signing material. Confirm each APK is unsigned before
   computing or recording its digest.
@@ -75,8 +80,9 @@ for a later key-custody contract.
 
 ## Deliverables
 
-- A tracked Gradle init script that makes `assembleMobyRelease` unsigned without
-  resolving or weakening the repository's permanent release-signing design.
+- A tracked Gradle init script and minimal conditional Gradle wiring that make
+  `assembleMobyRelease` unsigned without resolving credentials or weakening the
+  repository's normal release-signing design.
 - Two clean, offline assemblies of the same committed Moby release source using
   separate worktrees and build directories.
 - A Phase 3B report recording source identity, commands in sanitized form,
@@ -85,9 +91,11 @@ for a later key-custody contract.
 
 ## Acceptance checks
 
-- The init script acts only on Android application release build types, clears
-  signing after normal project configuration, and fails if signing is restored
-  before the task graph runs.
+- The init script sets a private marker before project evaluation, permits only
+  Moby release tasks, and fails if signing is present before the task graph runs.
+- With the marker present, Gradle neither creates nor assigns the release signing
+  configuration. With the marker absent, the tracked signing configuration and
+  release build-type assignment remain equivalent to their Phase 3A state.
 - Each build uses the pinned wrapper, repository-local Gradle state, offline
   dependency resolution, strict verification, dependency locks, the approved
   SDK, and explicitly unset signing-related environment names.
@@ -100,12 +108,13 @@ for a later key-custody contract.
 - The two APKs have equal sizes and SHA-256 digests and compare byte-for-byte.
   If they initially differ, the report identifies the differing entries and a
   minimal in-scope fix is verified by another two-build comparison.
-- Normal tracked release-signing configuration, application/build inputs,
-  dependencies, locks, verification metadata, wrapper, CI, and Fastlane metadata
-  remain unchanged unless a minimal determinism correction is documented.
+- Normal release-signing behavior, application/build inputs, dependencies,
+  locks, verification metadata, wrapper, CI, and Fastlane metadata remain
+  unchanged unless a minimal determinism correction is documented.
 - `git diff --check` passes; commits contain no trailers; and Phase 3B tracked
-  changes are limited to this contract, the unsigned-release init script, an
-  optional minimal determinism correction, and the Phase 3B report.
+  changes are limited to this contract, the unsigned-release init script,
+  conditional diagnostic signing wiring, an optional minimal determinism
+  correction, and the Phase 3B report.
 
 ## User-run tests
 
