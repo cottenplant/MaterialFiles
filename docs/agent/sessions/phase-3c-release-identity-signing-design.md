@@ -1,6 +1,6 @@
 # Session contract: Phase 3C — release identity and signing design
 
-Status: active
+Status: complete
 
 Working branch: `master`
 
@@ -145,11 +145,23 @@ new contract and explicit user operation.
 - Android package coexistence with any other app depends on distinct application
   IDs. This remains a later user-run device check; the agent will not inspect
   another app to prove it.
-- Exact key-generation options and certificate validity must be checked against
-  current official Android and JDK guidance before the guide is finalized.
+- Exact key-generation options and certificate validity were checked against
+  current official Android and JDK guidance; the resulting fixed profile and
+  source links are recorded in the guide and Phase 3C report.
 - Storage media, password-manager choice, physical locations, responsible
   person, and recovery custodian are personal operational decisions. The guide
   will define requirements and placeholders without requesting their values.
 - Certificate publication, signed-release construction, reproducibility after
   signing, update channels, distribution, and device acceptance remain separate
   contracts.
+
+## Result
+
+Phase 3C completed on 2026-09-14. The permanent Moby Files application ID is now
+recorded as `io.github.cottenplant.mobyfiles`, and the repository documents a
+dedicated, user-operated signing and key-custody policy that separates
+reproducible unsigned assembly from private-key use. No signing key, signing
+credential, certificate identity, or signed artifact was created or accessed.
+Implementation decisions, official documentation provenance, static acceptance,
+the corrected privacy near miss, and deferred user actions are recorded in
+`docs/agent/baselines/phase-3c.md`.
