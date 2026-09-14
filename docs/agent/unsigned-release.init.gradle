@@ -2,31 +2,35 @@
  * Disable Android release signing for agent-operated diagnostic builds.
  *
  * Invoke this file with Gradle's --init-script option from a clean worktree
- * after unsetting every signing-related environment name. The project hook
- * clears any plugin default immediately, and the post-evaluation hook clears
- * the release configuration declared by the project build script. The task
- * graph assertion prevents execution if another hook restores signing.
+ * after unsetting every signing-related environment name. The private marker
+ * lets project configuration omit credential lookup and signing assignment.
+ * Task graph assertions restrict the marker to Moby release diagnostics and
+ * prevent execution if signing is present.
  */
 
 gradle.beforeProject { project ->
-    project.pluginManager.withPlugin('com.android.application') {
-        def android = project.extensions.getByName('android')
-        android.buildTypes.named('release').configure {
-            signingConfig = null
-        }
-        project.afterEvaluate {
-            android.buildTypes.getByName('release').signingConfig = null
-        }
-    }
+    project.ext.set('agentUnsignedMobyRelease', true)
 }
 
 gradle.taskGraph.whenReady {
-    gradle.rootProject.allprojects.each { project ->
-        project.pluginManager.withPlugin('com.android.application') {
-            def android = project.extensions.getByName('android')
-            if (android.buildTypes.getByName('release').signingConfig != null) {
-                throw new GradleException('Release signing must remain disabled')
-            }
+    def applicationProjects = gradle.rootProject.allprojects.findAll { project ->
+        project.pluginManager.hasPlugin('com.android.application')
+    }
+    def applicationTasks = allTasks.findAll { task ->
+        task.project in applicationProjects
+    }
+    if (!applicationTasks.any { task -> task.name.contains('MobyRelease') }) {
+        throw new GradleException('Unsigned release diagnostics require Moby release tasks')
+    }
+    if (applicationTasks.any { task ->
+        task.name.contains('Upstream') || task.name.contains('Debug')
+    }) {
+        throw new GradleException('Unsigned release diagnostics permit only Moby release tasks')
+    }
+    applicationProjects.each { project ->
+        def android = project.extensions.getByName('android')
+        if (android.buildTypes.getByName('release').signingConfig != null) {
+            throw new GradleException('Release signing must remain disabled')
         }
     }
 }

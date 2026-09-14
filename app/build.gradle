@@ -6,6 +6,9 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-parcelize'
 
+def agentUnsignedMobyRelease = project.ext.has('agentUnsignedMobyRelease') &&
+        project.ext.get('agentUnsignedMobyRelease') == true
+
 apply from: '../signing.gradle'
 
 android {
@@ -72,7 +75,9 @@ android {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+            if (!agentUnsignedMobyRelease) {
+                signingConfig signingConfigs.release
+            }
         }
     }
     packagingOptions {
