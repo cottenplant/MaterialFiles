@@ -1,6 +1,6 @@
 # Session contract: Phase 3E — repository identity migration
 
-Status: active
+Status: complete
 
 Working branch: `master`
 
@@ -120,3 +120,18 @@ No APK, device, signing, or network-protocol test belongs to this phase.
 - The first signed release candidate, certificate/provenance publication,
   device acceptance, developer verification, update channels, and distribution
   require later contracts.
+
+## Result
+
+Phase 3E completed on 2026-09-15. Commit `748c9aaa` migrated the active fork
+URLs and updated both READMEs with the Phase 3D signing-key status without
+claiming a signed release. The local `origin` uses the renamed SSH repository
+for fetch and push, while `upstream` remains unchanged.
+
+All 11 external links in the active public documents and Moby identity resource
+had already been confirmed reachable through public unauthenticated access in
+the interrupted Phase 3E session. The resumed session did not repeat those
+network checks. Offline acceptance, the verification limits, deferred release
+work, and the anonymous-cookie privacy near miss are recorded in
+`docs/agent/baselines/phase-3e.md`. No signed-release-candidate contract was
+started.
