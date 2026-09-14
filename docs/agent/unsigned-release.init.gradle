@@ -12,11 +12,11 @@ gradle.beforeProject { project ->
     project.ext.set('agentUnsignedMobyRelease', true)
 }
 
-gradle.taskGraph.whenReady {
+gradle.taskGraph.whenReady { taskGraph ->
     def applicationProjects = gradle.rootProject.allprojects.findAll { project ->
         project.pluginManager.hasPlugin('com.android.application')
     }
-    def applicationTasks = allTasks.findAll { task ->
+    def applicationTasks = taskGraph.allTasks.findAll { task ->
         task.project in applicationProjects
     }
     if (!applicationTasks.any { task -> task.name.contains('MobyRelease') }) {
