@@ -128,7 +128,7 @@ Material changes to this notice are recorded in the repository history. Review
 the notice when updating to a new build.
 
 Questions and privacy reports can be opened through the fork's [public issue
-tracker](https://github.com/cottenplant/MaterialFiles/issues). Do not publish
+tracker](https://github.com/cottenplant/MobyFiles/issues). Do not publish
 passwords, private keys, unredacted logs, private addresses, confidential file
 data, or undisclosed security-vulnerability details in an issue.
 

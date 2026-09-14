@@ -17,8 +17,9 @@ Moby Files 是 [Material Files](https://github.com/zhanghai/MaterialFiles)
 可以使用相似的名称，但必须使用不同的应用 ID。分发后更改此 ID 会产生另一个
 Android 应用，并破坏预期的更新路径。
 
-仓库已经[记录](docs/release-signing.md)由用户执行的发布签名和密钥保管流程，但
-本项目尚未生成或使用永久签名密钥。
+Moby Files 的永久签名密钥已通过[发布签名流程](docs/release-signing.md)中由用户
+私下执行的密钥生成仪式和恢复测试。此状态仅依据不含敏感信息的人工证明；仓库
+验证过程未接触密钥或证书身份。该密钥尚未用于签署 Moby 正式版本。
 
 开发目标是运行 Android 17 的 GrapheneOS Pixel 9 Pro。目前尚未完成签名版本的
 真机验收，因此本仓库暂不声明已发布通过设备验证的版本。

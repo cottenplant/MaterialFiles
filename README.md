@@ -20,9 +20,11 @@ have similar names, but they must use different application IDs. Changing this
 ID after distribution would create a different Android app and break the
 intended update lineage.
 
-The user-operated release-signing and key-custody procedure is
-[documented](docs/release-signing.md), but no permanent key has been generated
-or used by this project.
+The permanent Moby Files signing key has passed the private, user-operated key
+ceremony and recovery gates in the documented
+[release-signing procedure](docs/release-signing.md). This status relies on
+sanitized human attestations; no key or certificate identity was exposed for
+repository verification. The key has not yet been used to sign a Moby release.
 
 Development is aimed at a GrapheneOS Pixel 9 Pro running Android 17. Signed
 device acceptance has not happened yet, so the repository does not currently

@@ -14,7 +14,7 @@ use it for confidential reports. No other private Moby Files reporting channel
 has been established in the tracked repository.
 
 If private reporting is unavailable, open a minimal request for private contact
-in the fork's [public issue tracker](https://github.com/cottenplant/MaterialFiles/issues).
+in the fork's [public issue tracker](https://github.com/cottenplant/MobyFiles/issues).
 State only that you may have found a security issue and whether it appears
 specific to Moby Files. Do not include vulnerability details, exploit steps,
 passwords, private keys, tokens, private hostnames or addresses, confidential
